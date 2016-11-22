@@ -14,7 +14,7 @@ Twitter.stream('statuses/filter', {track: '@makers_twit_bot'}, function(stream) 
     // print out the text of the tweet that came in
     console.log(tweet.text);
     //build our reply object
-    var statusObj = {status: "Hi @" + tweet.user.screen_name + " you are the best" }
+    var statusObj = {status: "Hi @" + tweet.user.screen_name + " you are the best!" }
     // var statusObj = {status: "Hi @" + tweet.user.screen_name + " https://www.youtube.com/watch?v=8Pr-p8tCruw"}
     //call the post function to tweet something
     Twitter.post('statuses/update', statusObj,  function(error, tweetReply, response){
