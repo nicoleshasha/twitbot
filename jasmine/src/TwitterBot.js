@@ -8,7 +8,7 @@ var twitterBot = new TwitterPackage(secret);
 
 // WEATHER
 // Call the stream function and pass in 'statuses/filter', our filter object, and our callback
-twitterBot.stream('statuses/filter', {track: '#food'}, function(stream) {
+twitterBot.stream('statuses/filter', {track: '#weather'}, function(stream) {
   // ... when we get tweet data...
   stream.on('data', function(tweet) {
 
@@ -22,27 +22,30 @@ twitterBot.stream('statuses/filter', {track: '#food'}, function(stream) {
       console.log("hi!!!!! iiiiii !!!!!!!")
       console.log("        iiiiii        ")
       console.log("hi!!!!! iiiiii !!!!!!!")
-
+      n = body2.indexOf("temp")
       console.log(body2)
-      console.log(body2.id)
-      console.log(body2.main)
-      console.log(body2.weather)
+      console.log(n)
+      $temp = body2.slice(n+6,n+10)
+      // console.log(temp)
+      // console.log(typeof(temp))
     });
 
 
     //build our reply object
-    var statusObj = {status: "Hi @" + tweet.user.screen_name + ",the temperature is"+ weather+"'C"}
+    var statusObj = {status: "Hi @" + tweet.user.screen_name + ", the temperature in London is "+ $temp+"'C"}
     //call the post function to tweet something
-    // twitterBot.post('statuses/update', statusObj,  function(error, tweetReply, response){
-    //
-    //   //if we get an error print it out
-    //   if(error){
-    //     console.log(error);
-    //   }
-    //
-    //   //print the text of the tweet we sent out
-    //   console.log(tweetReply.text);
-    // });
+
+    twitterBot.post('statuses/update', statusObj,  function(error, tweetReply, response){
+
+      //if we get an error print it out
+      if(error){
+        console.log(error);
+      }
+
+      //print the text of the tweet we sent out
+      console.log(tweetReply.text);
+    });
+
   });
 
   // ... when we get an error...
