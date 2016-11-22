@@ -8,7 +8,7 @@ var twitterBot = new TwitterPackage(secret);
 
 // WEATHER
 // Call the stream function and pass in 'statuses/filter', our filter object, and our callback
-twitterBot.stream('statuses/filter', {track: '#weather #london'}, function(stream) {
+twitterBot.stream('statuses/filter', {track: '#hippopotomus'}, function(stream) {
   // ... when we get tweet data...
   stream.on('data', function(tweet) {
 
@@ -18,10 +18,11 @@ twitterBot.stream('statuses/filter', {track: '#weather #london'}, function(strea
 
     //build our reply object
     request("http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=134d393fd68fd2c3c4db178a50b5ddb8", function(error2,response2,body2) {
-      n = body2.indexOf("temp")
-      temp = body2.slice(n+6,n+10)
+      weather = JSON.parse(body2);
+      tempNum = weather.main.temp;
+      tempString = tempNum.toString();
 
-      var statusObj = {status: "Hi @" + tweet.user.screen_name + ", the temperature in London is "+ temp+"°C"}
+      var statusObj = {status: "Hi @" + tweet.user.screen_name + ", the temperature in London is "+ tempString+"°C"}
       twitterBot.post('statuses/update', statusObj,  function(error, tweetReply, response){
 
         //if we get an error print it out
