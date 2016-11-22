@@ -5,7 +5,7 @@ var secret = require("./secret");
 var Twitter = new TwitterPackage(secret);
 
 // Call the stream function and pass in 'statuses/filter', our filter object, and our callback
-Twitter.stream('statuses/filter', {track: ''}, function(stream) {
+Twitter.stream('statuses/filter', {track: '#london'}, function(stream) {
 //Twitter.stream('statuses/filter', {track: '#london'}, function(stream) {
   // ... when we get tweet data...
   stream.on('data', function(tweet) {
