@@ -6,4 +6,6 @@ var eightBall = new EightBall();
     expect(eightBall.responses).toContain(eightBall.answer());
   })
 
+  
+
 });

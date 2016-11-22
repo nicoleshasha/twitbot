@@ -1,6 +1,12 @@
 var TwitterPackage = require('twitter');
 var secret = require("./secret");
-require('./models/EightBall.js')
+var Ball = require('./models/eightBall.js');
+
+console.log("Logging:");
+console.log(Ball);
+console.log(Ball.answer());
+
+console.log(TwitterPackage);
 
 //make a new Twitter object
 var Twitter = new TwitterPackage(secret);
