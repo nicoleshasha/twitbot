@@ -1,10 +1,18 @@
 var exports = module.exports = {};
+//
+// // exports.responses = ["Yes", "No", "Maybe", "Possibly", "Definitely", "Not recommended", "Reconsider", "Are you sure?", "Potentially", "Absolutely"]
+// //
+// // exports.answer = function () {
+// //   return this.responses[Math.floor(Math.random() * this.responses.length)];
+// // };
+//
+exports.eightBall = function(tweet) {
+  var responses = ["Yes", "No", "Maybe", "Possibly", "Definitely", "Not recommended", "Reconsider", "Are you sure?", "Potentially", "Absolutely"]
 
-exports.responses = ["Yes", "No", "Maybe", "Possibly", "Definitely", "Not recommended", "Reconsider", "Are you sure?", "Potentially", "Absolutely"]
-
-exports.answer = function () {
-  return this.responses[Math.floor(Math.random() * this.responses.length)];
-};
+  if (tweet.text.includes("#magic8ball")) {
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+}
 
 // Code below works partially- node console outputs it as a key: value pair
 
