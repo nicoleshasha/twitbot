@@ -1,0 +1,7 @@
+someone tweets @us
+program reads tweet and passes it into a function that checks which bot is going to reply
+tweet is passed to relevant bot
+bot processes the tweet and produces a reply
+reply is passed to app.js
+reply is interpolated into tweet
+app.js sends tweet
