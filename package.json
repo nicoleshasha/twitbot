@@ -1,11 +1,23 @@
 {
-  "name": "bot_tom",
+  "name": "twitbot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "## MVP1 #### User Stories   -----",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuartcooper/twitbot.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stuartcooper/twitbot/issues"
+  },
+  "homepage": "https://github.com/stuartcooper/twitbot#readme",
+  "dependencies": {
+    "request": "^2.79.0",
+    "twitter": "^1.4.0"
+  }
 }
