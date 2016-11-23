@@ -1,9 +1,7 @@
 var request = require("request");
 
 var exports = module.exports = {};
-exports.weather = function(tweet) {
-  console.log("tweet in weather js:")
-  console.log(tweet);
+exports.weather = function(tweet, callback) {
   var replyArray = [];
   var splitArray = tweet.text.replace(/\?/g,'').split(' ');
   if (splitArray.includes('weather') || splitArray.includes('temperature')) {
@@ -23,14 +21,8 @@ exports.weather = function(tweet) {
       tempNum = weather.main.temp;
       tempString = tempNum.toString();
       var replyStatus = "Hi @" + tweet.user.screen_name + ", the temperature in " + city + " is "+ tempString+"°C"
-      console.log("reply status in weather js:")
-      console.log(replyStatus);
       replyArray.push(replyStatus)
-      console.log("array in request:");
-      console.log(replyArray);
+      callback(replyArray[0])
     });
   }
-  console.log("reply array before return:");
-  console.log(replyArray);
-  return replyArray[0];
 };

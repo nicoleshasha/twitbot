@@ -8,21 +8,19 @@ var Twitter = new TwitterPackage(secret);
 
 Twitter.stream('statuses/filter', {track: '@makers_twit_bot'}, function(stream) {
   stream.on('data', function(tweet) {
-    var x = Weather.weather(tweet);
-    console.log("x in app js:")
-    console.log(x)
-    statusObj = {status: x}
+    Weather.weather(tweet, function(text) {
+      statusObj = {status: text}
+      console.log(tweet.text);
+      Twitter.post('statuses/update', statusObj,  function(error, tweetReply, response){
 
-    console.log("tweet.tweet in app js:")
-    console.log(tweet.text);
-    Twitter.post('statuses/update', statusObj,  function(error, tweetReply, response){
+        if(error){
+          console.log(error);
+        }
 
-      if(error){
-        console.log(error);
-      }
-
-      console.log(tweetReply.text);
+        console.log(tweetReply.text);
+      });
     });
+
   });
 
   stream.on('error', function(error) {
