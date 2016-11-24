@@ -5,7 +5,7 @@ var Weather = function(){
 Weather.prototype.city = function(tweet) {
   var replyArray = [];
   var splitArray = tweet.replace(/\?/g,'').split(' ');
-  var arr = splitArray.concat(cities);
+  var arr = splitArray.concat(this.cities);
   var sortedArr = arr.sort();
   var result = [];
   for (var i = 0; i < arr.length - 1; i++) {
@@ -13,4 +13,5 @@ Weather.prototype.city = function(tweet) {
       result.push(sortedArr[i]);
     }
   }
+  return result[0]
 }
