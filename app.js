@@ -14,13 +14,12 @@ Twitter.stream('statuses/filter', {track: '@makers_twit_bot'}, function(stream) 
 
     if (tweet.text.includes("#magic8ball")) {
       magicBall = Magic.eightBall(tweet)
-      statusObj = {status: magicBall}
+      statusObj = {status: "Hi @" + tweet.user.screen_name + " " + magicBall}
     } else if (tweet.text.includes('weather') || tweet.text.includes('temperature')) {
       Weather.weather(tweet, function(text) {
         statusObj = {status: text}
       })
     }
-
     console.log(tweet.text);
 
     Twitter.post('statuses/update', statusObj,  function(error, tweetReply, response){

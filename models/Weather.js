@@ -2,7 +2,6 @@ var request = require("request");
 var exports = module.exports = {};
 
 exports.weather = function(tweet, callback) {
-  console.log(tweet);
   var replyArray = [];
   var splitArray = tweet.text.replace(/\?/g,'').split(' ');
   var cities = ['London','Vancouver','Montevideo','Havana','Dublin','Bristol','Brasilia','Nicosia','Paris','Miami','Sydney','Liverpool','Tokyo','Madrid','Moscow','Beijing','Mumbai','Cairo','Manchester','Timbuktu','Auckland'];
