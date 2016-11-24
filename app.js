@@ -2,6 +2,7 @@ var TwitterPackage = require('twitter');
 var secret = require("./secret");
 var Magic = require('./models/EightBall.js');
 var Forecast = require('./models/Weather.js');
+var Tip = require('./models/Calculator.js');
 
 
 var Twitter = new TwitterPackage(secret);
@@ -12,6 +13,12 @@ Twitter.stream('statuses/filter', {track: '@makers_twit_bot'}, function(stream) 
       magicBallReply = Magic.eightBall(tweet)
       ballObj = {status: magicBallReply}
       Twitter.post('statuses/update', ballObj,  function(error, tweetReply, response){
+        console.log(tweetReply)
+      });
+    } else if (tweet.text.includes("#tipCalculator")) {
+      tipReply = Tip.calculator(tweet)
+      tipObj = {status: tipReply}
+      Twitter.post('statuses/update', tipObj,  function(error, tweetReply, response){
         console.log(tweetReply)
       });
     } else if (tweet.text.includes('weather') || tweet.text.includes('temperature')) {
