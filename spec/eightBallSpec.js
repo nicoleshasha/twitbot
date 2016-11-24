@@ -1,11 +1,11 @@
-describe("EightBall", function() {
+var Magic = require('./models/eightBall.js');
 
-var eightBall = new EightBall();
+describe("EightBall", function() {
 
   it("responds with an answer to a question", function(){
     expect(eightBall.responses).toContain(eightBall.answer());
   })
 
-  
+
 
 });
