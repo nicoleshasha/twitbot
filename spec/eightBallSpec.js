@@ -1,11 +1,15 @@
-describe("EightBall", function() {
+describe("eightBall", function() {
 
-var eightBall = new EightBall();
+ beforeEach(function(){
+   Magic = new EightBall();
+ })
 
-  it("responds with an answer to a question", function(){
-    expect(eightBall.responses).toContain(eightBall.answer());
-  })
+ it("responds with an answer to a question", function(){
+   expect(Magic.responses).toContain("Yes")
+ })
 
-  
+ it("responds with the username of the person that tweeted it", function(){
+   expect(Magic.eightBall("NicoleShasha")).toContain("Hi @NicoleShasha")
+ })
 
 });
