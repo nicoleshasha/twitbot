@@ -19,6 +19,7 @@ Twitter.stream('statuses/filter', {track: '@makers_twit_bot'}, function(stream) 
       Weather.weather(tweet, function(text) {
         statusObj = {status: text}
       })
+      statusObj
     }
     console.log(tweet.text);
 

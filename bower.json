@@ -1,0 +1,21 @@
+{
+  "name": "twitbot",
+  "description": "## MVP1 #### User Stories   -----",
+  "main": "app.js",
+  "authors": [
+    "Stuart Cooper <stucooper86@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/stuartcooper/twitbot",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "twitter#^3.3.7"
+  }
+}
