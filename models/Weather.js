@@ -8,15 +8,13 @@ exports.weather = function(tweet, callback) {
   var arr = splitArray.concat(cities);
   var sortedArr = arr.sort();
   var result = [];
-  var city = result[0];
-
   for (var i = 0; i < arr.length - 1; i++) {
     if (sortedArr[i + 1] == sortedArr[i]) {
       result.push(sortedArr[i]);
     }
   }
 
-
+  var city = result[0];
   request("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=134d393fd68fd2c3c4db178a50b5ddb8", function(error2,response2,body2) {
     weather = JSON.parse(body2);
     tempNum = weather.main.temp;
@@ -25,5 +23,4 @@ exports.weather = function(tweet, callback) {
     replyArray.push(replyStatus)
     callback(replyArray[0])
   });
-
 };
