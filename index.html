@@ -16,7 +16,7 @@
     body {
       overflow: hidden;
       height: 100%;
-      background-image: url(http://ppcdn.500px.org/42108888/b454bce9fa07be577a70cf7c91bcf59f8f3c23bf/2048.jpg);
+      background-image: url(http://cdn2.bigcommerce.com/server100/6ca92/product_images/uploaded_images/borrowing-owls-everglades-tours-2.jpg?t=1430802178);
       background-repeat: no-repeat;
       background-position: center;
       -webkit-background-size: cover;
@@ -31,35 +31,58 @@
       -webkit-font-smoothing: subpixel-antialiased;
     }
 
-    * {
+    /** {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-    }
+    }*/
 
     a {
       color: white;
       text-decoration: none;
     }
 
-  #TwitterFeed {
-    right-margin: 0;
+  .twitterfeed {
+    float: right;
+    padding-right: 50px;
   }
 
-    @-webkit-keyframes magnify {
-      10% {
-        -webkit-transform: scale(1.15) translateZ(0);
-      }
 
-      20% {
-        -webkit-transform: none;
-      }
+    h1 {
+      text-align: center;
+      font-family: 'Helvetica Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 75px;
+    }
 
+    .container {
+      background-color: #a6a6a6;
+      opacity: 0.5;
+      float: left;
+      width: 500px;
+      height: 500px;
+      margin-left: 50px;
+      position: absolute;
+      z-index: 0;
+    }
+
+    .description {
+    float: left;
+    width: 500px;
+    height: 500px;
+    margin-left: 50px;
+    font-size: 50px;
+    position: absolute;
+    z-index: 1;
     }
 
     </style>
     <h1>Twit-twoo bot</h1>
-    <p>Nothing here {{'yet' + '!'}}</p>
+    <div class="container">
+  </div>
+  <div class="description">
+    hello
+  </div>
     <script>
     window.addEventListener('load', function() {
       document.documentElement.className = 'ready';
@@ -68,10 +91,9 @@
 
     <body>
 
-
-      <div class="TwitterFeed">
-        <a class="twitter-timeline" data-width="500" data-height="500" href="https://twitter.com/makers_twit_bot">Tweets by makers_twit_bot</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
+    <div class="twitterfeed">
+      <a class="twitter-timeline" data-width="500" data-height="500" href="https://twitter.com/makers_twit_bot">Tweets by makers_twit_bot</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
 
 
   </body>
