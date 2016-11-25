@@ -1,5 +1,5 @@
 var TwitterPackage = require('twitter');
-var secret = require("./secret");
+var secret = require("./twitkey");
 var Magic = require('./models/EightBall.js');
 var Forecast = require('./models/Weather.js');
 var Tip = require('./models/Calculator.js');
